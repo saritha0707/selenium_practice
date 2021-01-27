@@ -20,6 +20,7 @@ public class Make_My_Trip_HomePage {
             driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
             driver.get("https://www.makemytrip.com");
             driver.manage().window().maximize();
+
             //System.out.println(driver.getTitle());
         //Below validation of Title contains updated Rewards , we need to validate partially
         Assert.assertEquals(driver.getTitle(),"MakeMyTrip - #1 Travel Website 50% OFF on Hotels, Flights & Holiday","Make My Trip Home Page Is not displayed");
@@ -27,6 +28,7 @@ public class Make_My_Trip_HomePage {
             //Scenario 1 : Validate selected country is INDIA (Contains method and basic XPATH)
         String country = "//div[@class=\"ctrySelect\"]//p[contains(@class,\"ctrySelectText\")]";
         Assert.assertEquals(driver.findElement(By.xpath(country)).getText(),"IN","Selected Country is not INDIA");
+
 
         //Scenario 2 :Validate Flights Icon is active
         //check menu_Flights is available on home page

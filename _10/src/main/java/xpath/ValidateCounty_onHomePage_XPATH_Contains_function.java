@@ -1,12 +1,14 @@
+package xpath;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+
 import java.util.concurrent.TimeUnit;
 
-public class last_function_flights_menu {
-
+public class ValidateCounty_onHomePage_XPATH_Contains_function {
 
     public static void main(String[] args)
     {
@@ -18,10 +20,14 @@ public class last_function_flights_menu {
             driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
             driver.get("https://www.makemytrip.com");
             driver.manage().window().maximize();
+            //System.out.println(driver.getTitle());
+            //Below validation of Title contains updated Rewards , we need to validate partially
+            Assert.assertEquals(driver.getTitle(),"MakeMyTrip - #1 Travel Website 50% OFF on Hotels, Flights & Holiday","Make My Trip Home Page Is not displayed");
 
-            //validate Flights menu with specified position
-            String flights = "//li[@data-cy=\"menu_Flights\"]//span[last()]";
-            Assert.assertNotNull(driver.findElement(By.xpath(flights)),"Flights menu is not available on Home page");
+            //Scenario 1 : Validate selected country is INDIA (Contains method and basic XPATH)
+            String country = "//div[@class=\"ctrySelect\"]//p[contains(@class,\"ctrySelectText\")]";
+            Assert.assertEquals(driver.findElement(By.xpath(country)).getText(),"IN","Selected Country is not INDIA");
+
             driver.close();
         }
         catch(Exception e)

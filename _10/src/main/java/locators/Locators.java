@@ -1,3 +1,5 @@
+package locators;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,15 +29,15 @@ public class Locators {
             //Click on SignUp using partialLinkText
             driver.findElement(By.partialLinkText("Sign")).click();
 
-            //select professional radio button using id
-            driver.findElement(By.id("professional")).click();
-
             //enter first_name using name locator
             driver.findElement(By.name("first_name")).sendKeys("ABC");
 
+            //mention explicit wait till radio button is displayed on page
+            //select student radio button using id
+            driver.findElement(By.id("student")).click();
+
             //enter email using css selector
             driver.findElement(By.cssSelector("#register_email")).sendKeys("abcxyz@mailinator.com");
-
 
             //select agreement using classname
             driver.findElement(By.className("agreement")).click();
